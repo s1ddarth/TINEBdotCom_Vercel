@@ -1,12 +1,19 @@
-// /api/getLinks.js
 export default async function handler(req, res) {
   const sheetId = process.env.SHEET_ID;
   const apiKey = process.env.API_KEY;
   const range = "links!A:C";
 
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
-  const response = await fetch(url);
-  const data = await response.json();
 
-  res.status(200).json(data);
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    // Cache on Vercel edge for 1 day (86400 seconds)
+    res.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate=60");
+
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch data" });
+  }
 }
