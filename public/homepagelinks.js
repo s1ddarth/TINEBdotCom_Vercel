@@ -19,7 +19,7 @@ function fetchLinks() {
 
       const linkContainer = document.getElementById("links");
       if (linkContainer) {
-        linkContainer.textContent = "Error fetching links.";
+        linkContainer.textContent = "Error fetching data, please try again later.";
       }
     });
 }
