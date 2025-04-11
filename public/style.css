@@ -1,0 +1,223 @@
+/* Style Settings */
+/*@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');*/
+:root {
+  --bgColor: white;
+  --accentColor: white /*#9bff00/*#30cf8c*/;
+  --accentColor2: black;
+  --accentColor3: #e1d3b6; /*#54E47A;*/
+  --accentColor4: #062e77;
+  --font: "Playfair Display";
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the body takes up at least the full height of the viewport */
+  margin: 0; /* Removes default body margin for better alignment */
+}
+
+main {
+  flex: 1;
+}
+
+.spinner {
+  border: 4px solid lightgray;
+  border-left-color: blue;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+  display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+footer {
+  width: 100%;
+  color: black;
+  background-color: #e1d3b6;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+#userPhoto {
+  width: 96px;
+  height: 96px; /*96*/
+  margin: 5px auto 5px;
+  border-radius: 50%;
+  border: 3px;
+  border-radius: 100%;
+  border-style: solid;
+  border-color: var(--bgColor);
+}
+
+#userName {
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  display: block;
+  font-family: var(--font);
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+#links {
+  max-width: 675px;
+  width: auto;
+  display: block;
+  margin: 5px auto;
+}
+
+.link {
+  display: block;
+  background-color: var(--accentColor);
+  color: black;
+  font-family: var(--font);
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 17px;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99);
+  border: solid var(--accentColor2) 2px;
+}
+
+.link:hover {
+  background-color: var(--accentColor3);
+  color: var(--accentColor4);
+}
+
+.iframe-container {
+  overflow: hidden;
+  /* 16:9 aspect ratio */
+  padding-top: 1000%;
+  position: relative;
+}
+
+.iframe-container iframe {
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.unstyled-button {
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.iconic {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 0 0em 0 0em;
+}
+
+/*@media not screen and (min-width: 899px){
+
+  .iconic {
+    margin: 0 -2em;
+  }
+}
+
+@media (min-width: 30em) and (orientation: landscape){
+  .iconic {
+      margin: 0 2em;
+    }
+
+
+  }
+*/
+/*https://stackoverflow.com/questions/11078509/how-to-increase-the-clickable-area-of-a-a-tag-button#:~:text=That%20said%2C%20if%20you%20really,a%20).&text=z%2Dindex%20can%20be%20used,of%20any%20text%20that%20follows./
+
+/* only animate if the device supports hover */
+@media (hover: hover) {
+  #creditcard {
+    /*  set start position */
+    transform: translateY(110px);
+    transition: transform 0.1s ease-in-out;
+    /*  set transition for mouse enter & exit */
+  }
+
+  #money {
+    /*  set start position */
+    transform: translateY(180px);
+    transition: transform 0.1s ease-in-out;
+    /*  set transition for mouse enter & exit */
+  }
+
+  button:hover #creditcard {
+    transform: translateY(0px);
+    transition: transform 0.2s ease-in-out;
+    /*  overide transition for mouse enter */
+  }
+
+  button:hover #money {
+    transform: translateY(0px);
+    transition: transform 0.3s ease-in-out;
+    /*  overide transition for mouse enter */
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.25rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.button:hover .button__text span {
+  transform: translateY(-0.25rem);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* styling */
+
+.button {
+  border: none;
+  outline: none;
+  background-color: purple;
+  padding: 1rem 90px 1rem 2rem;
+  position: relative;
+  border-radius: 8px;
+  letter-spacing: 0.7px;
+  background-color: var(--accentColor3);
+
+  color: var(--accentColor4);
+  font-size: 1.25rem;
+  font-family: var(--font);
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button__svg {
+  position: absolute;
+  overflow: visible;
+  bottom: 6px;
+  right: 0.2rem;
+  height: 4.7em;
+}
