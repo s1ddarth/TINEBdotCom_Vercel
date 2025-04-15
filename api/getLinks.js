@@ -9,8 +9,8 @@ export default async function handler(req, res) {
     const response = await fetch(url);
     const data = await response.json();
 
-    // Cache on Vercel edge for 3 hours (10800 seconds)
-    res.setHeader("Cache-Control", "s-maxage=10800, stale-while-revalidate=60");
+    // Cache on Vercel edge for 2 mins (120s)
+    res.setHeader("Cache-Control", "s-maxage=120, stale-while-revalidate=60");
 
     res.status(200).json(data);
   } catch (error) {
